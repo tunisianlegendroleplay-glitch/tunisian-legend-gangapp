@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tunisian Legend - Gang Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- BACKGROUND ANIMATION ---------- */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(229,9,20,0.25), transparent 70%),
+                  radial-gradient(circle at 80% 80%, rgba(229,9,20,0.15), transparent 70%);
+      animation: move-bg 10s infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes move-bg {
+      from { background-position: 0% 0%; }
+      to { background-position: 100% 100%; }
+    }
+
+    /* ---------- MAIN SECTION ---------- */
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+      animation: glow 2s infinite alternate;
+      filter: drop-shadow(0 0 10px red);
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px red); }
+      to { filter: drop-shadow(0 0 20px red); }
+    }
+
+    .server-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #e50914;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      margin-top: 10px;
+      font-size: 24px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .desc {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ccc;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e50914;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 15px rgba(229,9,20,0.5);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #b1060f;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(229,9,20,0.8);
+    }
+
+    /* ---------- FORM SECTION ---------- */
+    .form-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+      padding: 60px 20px;
+    }
+
+    .form-section.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 1000px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(229,9,20,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .server-name {
+        font-size: 22px;
+      }
+      .title {
+        font-size: 20px;
+      }
+      iframe {
+        height: 1200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🟥 MAIN HEADER SECTION -->
+  <div class="container" id="top">
+    <img src="C:\Users\ASUS\Desktop\gang application\tunisian-legend-logo.png" alt="Tunisian Legend Logo" class="logo">
+    <h1 class="server-name">TUNISIAN LEGEND</h1>
+    <h2 class="title">Gang Application Form</h2>
+    <p class="desc">
+      Please fill out the official Gang Application Form below to apply for your gang in the Tunisian Legend Roleplay server.<br>
+      Make sure to provide detailed and honest answers. Good luck!
+    </p>
+    <button class="btn" id="openFormBtn">Open Form</button>
+  </div>
+
+  <!-- 🟥 GOOGLE FORM SECTION (Hidden by default) -->
+  <div class="form-section" id="formSection">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFrX5cH3C-Nc9UydaQP-msx8PxOXK64bU6csF__AaKNQhSUA/viewform?embedded=true" width="640" height="1227" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+  <footer>
+    <p>© 2025 Tunisian Legend RP | Designed by zo9lam</p>
+  </footer>
+
+  <script>
+    const openFormBtn = document.getElementById('openFormBtn');
+    const formSection = document.getElementById('formSection');
+
+    openFormBtn.addEventListener('click', () => {
+      formSection.classList.add('show');
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
